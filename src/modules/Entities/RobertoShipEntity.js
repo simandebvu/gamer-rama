@@ -6,6 +6,7 @@ export default class RobertoShip extends Entity {
     super(scene, x, y, 'sprEnemy1', 'RobertoShip');
     this.body.velocity.y = Phaser.Math.Between(50, 100);
     this.states = { MOVE_DOWN: 'MOVE_DOWN', CHASE: 'CHASE' };
+    this.setData('score', 50);
     this.state = this.states.MOVE_DOWN;
   }
 

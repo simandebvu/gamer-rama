@@ -4,6 +4,7 @@ import Player from '../Entities/PlayerEntity';
 import OmnicronShip from '../Entities/OmicronShipEntity';
 import RobertoShip from '../Entities/RobertoShipEntity';
 import NimbusShip from '../Entities/NimbusShipEntity';
+import storage from '../Objects/LocalStorage';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -64,6 +65,30 @@ export default class GameScene extends Phaser.Scene {
       repeat: -1,
     });
 
+    this.scores = storage.getScores();
+
+    this.scoreTextConfig = {
+      color: '#fff',
+      fontFamily: 'sans-serif',
+      fontSize: '2vw',
+      lineHeight: 1.3,
+      textAlign: 'center',
+    };
+
+    this.sceneScore = this.add.text(
+      this.game.config.width * 0.05,
+      this.game.config.height * 0.85,
+      `Last Score: ${this.scores[0]}`,
+      this.scoreTextConfig,
+    );
+
+    this.sceneScore = this.add.text(
+      this.game.config.width * 0.05,
+      this.game.config.height * 0.9,
+      `High Score: ${this.scores[1]}`,
+      this.scoreTextConfig,
+    );
+
     this.backgrounds = [];
     for (let i = 0; i < 5; i += 1) {
       const bg = new ScrollingBackground(this, 'sprBg0', i * 10);
@@ -75,6 +100,7 @@ export default class GameScene extends Phaser.Scene {
       this.game.config.height * 0.5,
       'sprPlayer',
     );
+
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -86,19 +112,20 @@ export default class GameScene extends Phaser.Scene {
     this.playerLasers = this.add.group();
 
     this.physics.add.collider(this.playerLasers, this.enemies, (playerLaser, enemy) => {
-      if (enemy) {
-        if (enemy.onDestroy !== undefined) {
-          enemy.onDestroy();
-        }
-        enemy.explode(true);
-        playerLaser.destroy();
+      if (enemy && enemy.onDestroy !== undefined) {
+        this.player.setScore(enemy.getData('score'));
+        enemy.onDestroy();
       }
+
+      enemy.explode(true);
+      playerLaser.destroy();
     });
 
     this.physics.add.collider(this.player, this.enemies, (player, enemy) => {
       if (!player.getData('isDead')
           && !enemy.getData('isDead')) {
         player.explode(false);
+        this.player.setScore(enemy.getData('score'));
         player.onDestroy();
         enemy.explode(true);
       }
@@ -109,10 +136,8 @@ export default class GameScene extends Phaser.Scene {
           && !laser.getData('isDead')) {
         player.explode(false);
         player.onDestroy();
-        laser.destroy();
-      } else {
-        laser.destroy();
       }
+      laser.destroy();
     });
 
     this.time.addEvent({
@@ -155,7 +180,7 @@ export default class GameScene extends Phaser.Scene {
   update() {
     if (!this.player.getData('isDead')) {
       this.player.update();
-
+      this.sceneScore.text = `Score: ${this.player.getData('score')}`;
       if (this.keyW.isDown) {
         this.player.moveUp();
       } else if (this.keyS.isDown) {
