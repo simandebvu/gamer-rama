@@ -10,10 +10,7 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    // add logo image
-    this.add.image(400, 200, 'logo');
-
-    // display progress bar
+    this.add.image(280, 200, 'logo');
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
@@ -77,22 +74,20 @@ export default class PreloaderScene extends Phaser.Scene {
       this.ready();
     });
 
-    this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
+    this.timedEvent = this.time.delayedCall(5000, this.ready, [], this);
 
-    // load assets needed in our game
-    this.load.image('blueButton1', 'assets/ui/blue_button02.png');
-    this.load.image('blueButton2', 'assets/ui/blue_button03.png');
-    this.load.image('simakkLogo', 'assets/cover.png');
-    this.load.image('box', 'assets/ui/grey_box.png');
-    this.load.image('checkedBox', 'assets/ui/blue_boxCheckmark.png');
-    this.load.audio('bgMusic', ['assets/TownTheme.mp3']);
+    this.load.image('blueButton1', 'assets/images/blue_button02.png');
+    this.load.image('blueButton2', 'assets/images/blue_button03.png');
+    this.load.image('gameLogo', 'assets/images/gameLogo.jpg');
+    this.load.image('box', 'assets/images/grey_box.png');
+    this.load.image('checkedBox', 'assets/images/blue_boxCheckmark.png');
   }
 
   ready() {
-    this.scene.start('Title');
+    this.scene.start('Menu');
     this.readyCount += 1;
     if (this.readyCount === 2) {
-      this.scene.start('Title');
+      this.scene.start('Menu');
     }
   }
 }
