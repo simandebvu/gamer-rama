@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import ScrollingBackground from '../Entities/ScrollingBackground';
-import Player from '../Entities/Player';
+import ScrollingBackground from '../Entities/ScrollingBackgroundEntity';
+import Player from '../Entities/PlayerEntity';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
