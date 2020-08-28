@@ -14,7 +14,7 @@ export default class PreloaderScene extends Phaser.Scene {
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
-    progressBox.fillRect(240, 270, 320, 50);
+    progressBox.fillRect(280, 200, 320, 50);
 
     const { width } = this.cameras.main;
     const { height } = this.cameras.main;
@@ -56,7 +56,7 @@ export default class PreloaderScene extends Phaser.Scene {
       percentText.setText(`${parseInt(value * 100, 10)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
-      progressBar.fillRect(250, 280, 300 * value, 30);
+      progressBar.fillRect(250, 200, 300 * value, 30);
     });
 
     // update file progress text

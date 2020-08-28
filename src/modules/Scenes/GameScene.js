@@ -13,6 +13,10 @@ export default class GameScene extends Phaser.Scene {
   preload() {
     this.load.image('sprBg0', 'assets/images/sprBg0.png');
     this.load.image('sprBg1', 'assets/images/sprBg0.png');
+    this.load.image('sprEnemy1', 'assets/images/sprEnemy1.png');
+    this.load.image('sprLaserPlayer', 'assets/images/sprLaserPlayer.png');
+    this.load.image('sprLaserEnemy0', 'assets/images/sprLaserEnemy0.png');
+
     this.load.spritesheet('sprExplosion', 'assets/images/sprExplosion.png', {
       frameWidth: 32,
       frameHeight: 32,
@@ -21,13 +25,10 @@ export default class GameScene extends Phaser.Scene {
       frameWidth: 16,
       frameHeight: 16,
     });
-    this.load.image('sprEnemy1', 'assets/images/sprEnemy1.png');
     this.load.spritesheet('sprEnemy2', 'assets/images/sprEnemy2.png', {
       frameWidth: 16,
       frameHeight: 16,
     });
-    this.load.image('sprLaserEnemy0', 'assets/images/sprLaserEnemy0.png');
-    this.load.image('sprLaserPlayer', 'assets/images/sprLaserPlayer.png');
     this.load.spritesheet('sprPlayer', 'assets/images/sprPlayer.png', {
       frameWidth: 20,
       frameHeight: 34,
@@ -62,6 +63,7 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 20,
       repeat: -1,
     });
+
     this.backgrounds = [];
     for (let i = 0; i < 5; i += 1) {
       const bg = new ScrollingBackground(this, 'sprBg0', i * 10);
@@ -82,7 +84,7 @@ export default class GameScene extends Phaser.Scene {
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
     this.time.addEvent({
-      delay: 800,
+      delay: 1000,
       callback() {
         let enemy = null;
 
@@ -185,14 +187,6 @@ export default class GameScene extends Phaser.Scene {
         }
       }
 
-      this.physics.add.overlap(this.player, this.enemyLasers, (player, laser) => {
-        if (!player.getData('isDead')
-            && !laser.getData('isDead')) {
-          player.explode(false);
-          player.onDestroy();
-          laser.destroy();
-        }
-      });
       this.physics.add.overlap(this.player, this.enemyLasers, (player, laser) => {
         if (!player.getData('isDead')
             && !laser.getData('isDead')) {
