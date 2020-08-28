@@ -10,12 +10,8 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    this.add.image(280, 200, 'logo');
+    this.add.image(240, 200, 'logo');
     const progressBar = this.add.graphics();
-    const progressBox = this.add.graphics();
-    progressBox.fillStyle(0x222222, 0.8);
-    progressBox.fillRect(280, 200, 320, 50);
-
     const { width } = this.cameras.main;
     const { height } = this.cameras.main;
     const loadingText = this.make.text({
@@ -51,30 +47,26 @@ export default class PreloaderScene extends Phaser.Scene {
     });
     assetText.setOrigin(0.5, 0.5);
 
-    // update progress bar
     this.load.on('progress', (value) => {
       percentText.setText(`${parseInt(value * 100, 10)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
-      progressBar.fillRect(250, 200, 300 * value, 30);
+      progressBar.fillRect(100, 200, 300 * value, 30);
     });
 
-    // update file progress text
     this.load.on('fileprogress', (file) => {
       assetText.setText(`Loading asset: ${file.key}`);
     });
 
-    // remove progress bar when complete
     this.load.on('complete', () => {
       progressBar.destroy();
-      progressBox.destroy();
       loadingText.destroy();
       percentText.destroy();
       assetText.destroy();
       this.ready();
     });
 
-    this.timedEvent = this.time.delayedCall(5000, this.ready, [], this);
+    this.timedEvent = this.time.delayedCall(8000, this.ready, [], this);
 
     this.load.image('blueButton1', 'assets/images/blue_button02.png');
     this.load.image('blueButton2', 'assets/images/blue_button03.png');
