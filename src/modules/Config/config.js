@@ -1,8 +1,16 @@
 import Phaser from 'phaser';
 
 export default {
-  type: Phaser.AUTO,
-  parent: 'gamer-rama',
-  width: 800,
+  type: Phaser.WEBGL,
+  width: 480,
   height: 600,
+  backgroundColor: 'black',
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { x: 0, y: 0 },
+    },
+  },
+  pixelArt: true,
+  roundPixels: true,
 };
