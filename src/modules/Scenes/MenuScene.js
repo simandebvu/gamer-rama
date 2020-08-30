@@ -50,7 +50,7 @@ export default class MenuScene extends Phaser.Scene {
 
     this.creditsButton = new Button(this, config.width * 0.5 + 120, config.height * 0.2, 'blueButton1', 'blueButton2', 'Credits', 'Credits');
 
-    this.textKeys = this.add.text(25, 300, 'Key Controls', { fontSize: 18, color: '#000', fontStyle: 'bold' });
+    this.textKeys = this.add.text(25, 300, 'Key Controls', { fontSize: 18, color: '#fff', fontStyle: 'bold' });
 
     this.upKey = new Button(this, 260, 360, 'upKey', 'upKey');
     this.downKey = new Button(this, 260, 410, 'downKey', 'downKey');
