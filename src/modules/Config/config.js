@@ -11,6 +11,10 @@ export default {
       gravity: { x: 0, y: 0 },
     },
   },
+  parent: 'game-div',
+  dom: {
+    createContainer: true,
+  },
   pixelArt: true,
   roundPixels: true,
 };
