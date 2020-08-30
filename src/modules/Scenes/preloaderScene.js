@@ -41,7 +41,7 @@ export default class PreloaderScene extends Phaser.Scene {
       y: height / 2 + 50,
       text: '',
       style: {
-        font: '18px monospace',
+        font: '18px sans-serif',
         fill: '#ffffff',
       },
     });
