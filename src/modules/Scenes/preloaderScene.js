@@ -17,7 +17,7 @@ export default class PreloaderScene extends Phaser.Scene {
     const { height } = this.cameras.main;
     const loadingText = this.make.text({
       x: width / 2,
-      y: height / 2 - 50,
+      y: height / 2 - 250,
       text: 'Loading...',
       style: {
         font: '20px monospace',
@@ -52,7 +52,7 @@ export default class PreloaderScene extends Phaser.Scene {
       percentText.setText(`${parseInt(value * 100, 10)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
-      progressBar.fillRect(100, 200, 300 * value, 30);
+      progressBar.fillRect(100, 400, 300 * value, 30);
     });
 
     this.load.on('fileprogress', (file) => {
