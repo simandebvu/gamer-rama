@@ -15,9 +15,9 @@ export default class GameOverScene extends Phaser.Scene {
   }
 
   create() {
-    this.gameHeader = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.7, 'bender');
+    this.gameHeader = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.8, 'bender');
 
-    this.title = this.add.text(this.game.config.width * 0.5, 128, 'GAME OVER', {
+    this.title = this.add.text(this.game.config.width * 0.5, 90, 'GAME OVER', {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
@@ -26,9 +26,28 @@ export default class GameOverScene extends Phaser.Scene {
     });
     this.title.setOrigin(0.5);
 
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 100, 'blueButton1', 'blueButton2', 'Restart', 'Game');
+    this.score = this.add.text(this.game.config.width * 0.5, 130,
+      'Hello your score is: 0', {
+        fontFamily: 'monospace',
+        fontSize: 20,
+        fontStyle: 'bold',
+        color: '#ffffff',
+        align: 'center',
+      });
+    this.score.setOrigin(0.5);
 
-    this.optionsButton = new Button(this, config.width / 2, config.height / 2, 'blueButton1', 'blueButton2', 'Menu', 'Menu');
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <input type="text" id="nameField" placeholder="Enter your name" style="width: ${this.game.config.width * 0.30}px"><br>
+      <input type="button" name="submitButton" value="Submit Score" id="submitButton">
+    `;
+
+    const element = this.add.dom(config.width * 0.85, 250, div);
+    element.addListener('click');
+
+    this.optionsButton = new Button(this, config.width * 0.2, config.height * 0.3, 'blueButton1', 'blueButton2', 'Restart', 'Game');
+
+    this.creditsButton = new Button(this, config.width * 0.5 + 130, config.height * 0.3, 'blueButton1', 'blueButton2', 'Menu', 'Menu');
 
 
     this.backgrounds = [];

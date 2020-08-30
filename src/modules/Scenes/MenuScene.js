@@ -44,11 +44,11 @@ export default class MenuScene extends Phaser.Scene {
 
     this.gameHeader = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.5, 'gameImage');
 
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 100, 'blueButton1', 'blueButton2', 'Play', 'Game');
+    this.gameButton = new Button(this, config.width * 0.5 - 120, config.height * 0.2, 'blueButton1', 'blueButton2', 'Play', 'Game');
 
-    this.optionsButton = new Button(this, config.width / 2, config.height / 2, 'blueButton1', 'blueButton2', 'Options', 'Options');
+    this.optionsButton = new Button(this, config.width * 0.5, config.height * 0.2, 'blueButton1', 'blueButton2', 'Options', 'Options');
 
-    this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 100, 'blueButton1', 'blueButton2', 'Credits', 'Credits');
+    this.creditsButton = new Button(this, config.width * 0.5 + 120, config.height * 0.2, 'blueButton1', 'blueButton2', 'Credits', 'Credits');
 
     this.model = this.sys.game.globals.model;
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
