@@ -31,8 +31,8 @@ export default class GameScene extends Phaser.Scene {
       frameHeight: 16,
     });
     this.load.spritesheet('sprPlayer', 'assets/images/sprPlayer.png', {
-      frameWidth: 20,
-      frameHeight: 34,
+      frameWidth: 34,
+      frameHeight: 57,
     });
   }
 
@@ -101,6 +101,7 @@ export default class GameScene extends Phaser.Scene {
       'sprPlayer',
     );
 
+    this.player.setScore(0);
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);

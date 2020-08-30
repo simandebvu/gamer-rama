@@ -2,6 +2,8 @@ import Phaser from 'phaser';
 import Button from '../Objects/ButtonObject';
 import config from '../Config/config';
 import ScrollingBackground from '../Entities/ScrollingBackgroundEntity';
+import ScoresAPI from '../ThirdParties/ScoreApi';
+import LocalStorage from '../Objects/LocalStorage';
 
 export default class GameOverScene extends Phaser.Scene {
   constructor() {
@@ -15,6 +17,7 @@ export default class GameOverScene extends Phaser.Scene {
   }
 
   create() {
+    this.scores = LocalStorage.getScores();
     this.gameHeader = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.8, 'bender');
 
     this.title = this.add.text(this.game.config.width * 0.5, 90, 'GAME OVER', {
@@ -27,7 +30,7 @@ export default class GameOverScene extends Phaser.Scene {
     this.title.setOrigin(0.5);
 
     this.score = this.add.text(this.game.config.width * 0.5, 130,
-      'Hello your score is: 0', {
+      `Hello your score is: ${this.scores[0]}`, {
         fontFamily: 'monospace',
         fontSize: 20,
         fontStyle: 'bold',
@@ -38,12 +41,29 @@ export default class GameOverScene extends Phaser.Scene {
 
     const div = document.createElement('div');
     div.innerHTML = `
-      <input type="text" id="nameField" placeholder="Enter your name" style="width: ${this.game.config.width * 0.30}px"><br>
+      <input type="text" id="nameField" placeholder="Enter your name" style="width: ${this.game.config.width * 0.30}px" minlength="2" maxlength="10" required><br>
       <input type="button" name="submitButton" value="Submit Score" id="submitButton">
     `;
 
+    this.userName = '';
+
     const element = this.add.dom(config.width * 0.85, 250, div);
     element.addListener('click');
+
+    element.on('click', (event) => {
+      if (event.target.name === 'submitButton') {
+        const inputText = document.getElementById('nameField');
+        if (inputText.value !== '') {
+          element.removeListener('click');
+          element.setVisible(false);
+          this.userName = inputText.value;
+          this.submit = ScoresAPI.submitScore(this.userName, this.scores[0]);
+          this.submit.then(() => {
+            this.scene.start('LeaderBoard');
+          });
+        }
+      }
+    });
 
     this.optionsButton = new Button(this, config.width * 0.2, config.height * 0.3, 'blueButton1', 'blueButton2', 'Restart', 'Game');
 
