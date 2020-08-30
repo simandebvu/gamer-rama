@@ -11,6 +11,7 @@ export default class PreloaderScene extends Phaser.Scene {
 
   preload() {
     this.add.image(240, 200, 'logo');
+
     const progressBar = this.add.graphics();
     const { width } = this.cameras.main;
     const { height } = this.cameras.main;
@@ -74,6 +75,11 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('gameLogo', 'assets/images/gameLogo.jpg');
     this.load.image('box', 'assets/images/grey_box.png');
     this.load.image('checkedBox', 'assets/images/blue_boxCheckmark.png');
+    this.load.image('upKey', 'assets/images/upKey.png');
+    this.load.image('downKey', 'assets/images/downKey.png');
+    this.load.image('leftKey', 'assets/images/leftKey.png');
+    this.load.image('rightKey', 'assets/images/rightKey.png');
+    this.load.image('spaceKey', 'assets/images/spaceKey.png');
   }
 
   ready() {

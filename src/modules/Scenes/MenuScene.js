@@ -50,6 +50,19 @@ export default class MenuScene extends Phaser.Scene {
 
     this.creditsButton = new Button(this, config.width * 0.5 + 120, config.height * 0.2, 'blueButton1', 'blueButton2', 'Credits', 'Credits');
 
+    this.textKeys = this.add.text(25, 300, 'Key Controls', { fontSize: 18, color: '#000', fontStyle: 'bold' });
+
+    this.upKey = new Button(this, 260, 360, 'upKey', 'upKey');
+    this.downKey = new Button(this, 260, 410, 'downKey', 'downKey');
+    this.leftKey = new Button(this, 210, 385, 'leftKey', 'leftKey');
+    this.rightKey = new Button(this, 310, 385, 'rightKey', 'rightKey');
+    this.spaceKey = new Button(this, 110, 385, 'spaceKey', 'spaceKey');
+
+    this.textInstructions = this.add.text(20, 500,
+      'Use the direction keys to navigate'
+      + '\nUse the space key to pew pew',
+      { fontSize: 20 });
+
     this.model = this.sys.game.globals.model;
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
       this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
