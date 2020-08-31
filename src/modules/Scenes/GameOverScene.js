@@ -29,8 +29,18 @@ export default class GameOverScene extends Phaser.Scene {
     });
     this.title.setOrigin(0.5);
 
-    this.score = this.add.text(this.game.config.width * 0.5, 130,
-      `Hello your score is: ${this.scores[0]}`, {
+    this.message = this.add.text(config.width * 0.2, 125,
+      'Zoidberg: Killed, eh? I\'m no doctor, but that sounds painful.', {
+        fontFamily: 'monospace',
+        fontSize: 12,
+        fontStyle: 'bold',
+        color: '#ffffff',
+        align: 'center',
+      });
+    this.message.setOrigin(0.2);
+
+    this.score = this.add.text(this.game.config.width * 0.5, 150,
+      `Well, your score is: ${this.scores[0]}`, {
         fontFamily: 'monospace',
         fontSize: 20,
         fontStyle: 'bold',
