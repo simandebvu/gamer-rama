@@ -31,8 +31,8 @@ export default class GameScene extends Phaser.Scene {
       frameHeight: 16,
     });
     this.load.spritesheet('sprPlayer', 'assets/images/sprPlayer.png', {
-      frameWidth: 34,
-      frameHeight: 57,
+      frameWidth: 37,
+      frameHeight: 65,
     });
   }
 
