@@ -34,6 +34,7 @@
   - [Local Installation](#local-installation)
   - [Automated Test](#automated-test)
   - [Potential future features](#potential-future-features)
+  - [Screen Shots](#screen-shots)
   - [Authors](#authors)
   - [🤝 Contributing](#-contributing)
   - [Show your support](#show-your-support)
@@ -102,6 +103,23 @@ Run the command and see the output: `$ npm run test`
 - Extend the game to a multiplayer online game
 - Port it to mobile
 - Make a WEBXR variant
+
+## Screen Shots
+
+<table style="padding:10px">
+  <tr>
+    <td> 
+         <img src=".\MenuScene.png"  alt="1" width = 280px height = 400px ></td>      
+ <td><img src=".\OptionsScene.png" align="right" alt="2" width = 280px height = 400px></td>
+   <td><img src=".\GameOverScene.png" alt="3" width = 280px height = 400px></td>     
+  </tr>
+  <tr>
+     <td><img src=".\GameScene.png" alt="3" width = 280px height = 400px></td>     
+     <td><img src=".\LeaderboardScene.png" alt="3" width = 280px height = 400px></td> 
+          <td><img src=".\GameScene.png" alt="3" width = 280px height = 400px></td>     
+     <td><img src=".\CreditsScene.png" alt="3" width = 280px height = 400px></td> 
+     </tr> 
+</table>
 
 ## Authors
 
