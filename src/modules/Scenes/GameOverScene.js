@@ -73,11 +73,14 @@ export default class GameOverScene extends Phaser.Scene {
           element.removeListener('click');
           element.setVisible(false);
           this.userName = inputText.value;
-          this.submit = ScoresAPI.submitScore(this.userName, this.scores[0]);
-          this.submit.then(() => {
-            this.song.stop();
-            this.scene.start('LeaderBoard');
-          });
+          if (this.scores[0] > 0) {
+            this.submit = ScoresAPI.submitScore(this.userName, this.scores[0]);
+            this.submit.then(() => {
+              this.scene.start('LeaderBoard');
+            });
+          }
+          this.song.stop();
+          this.scene.start('LeaderBoard');
         }
       }
     });
