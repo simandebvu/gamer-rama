@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/simandebvu/gamer-rama/">
-    <img src="../gamer-rama/dist/assets/images/gameLogo.jpg" alt="Logo" width="200" height="100">
+    <img src="./gameLogo.jpg" alt="Logo" width="200" height="100">
   </a>
 
   <h3 align="center">Gamerama</h3>
@@ -67,7 +67,7 @@ The player will be part of the planet express crew in a bid to deliver precious 
 
 ## How to play
 
-![keyboard](../gamer-rama/dist/assets/images/keyboard.png)
+![keyboard](./keyboard.png)
 
 - Use arrow keys to navigate the ship
 - Use the Space Bar to shoot
@@ -78,7 +78,7 @@ Feel free to look at it, by clicking [here.](https://docs.google.com/document/d/
   
 ## Live Demo
 
-[Live Demo Link](https://simandebvu.github.io/tic-tac-toe-javascript/)
+[Live Demo Link](https://gamer-ama.netlify.app/)
 
 ## Local Installation 
 
