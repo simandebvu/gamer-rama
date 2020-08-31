@@ -12,9 +12,13 @@ export default class MenuScene extends Phaser.Scene {
     this.load.image('sprBg0', 'assets/images/sprBg0.png');
     this.load.image('sprBg1', 'assets/images/sprBg1.png');
     this.load.image('gameImage', 'assets/images/cover.png');
+    this.load.audio('sndBtnPlay', 'assets/music/bender_2.mp3');
   }
 
   create() {
+    this.sfx = {
+      btnPlay: this.sound.add('sndBtnPlay'),
+    };
     this.backgrounds = [];
     for (let i = 0; i < 5; i += 1) {
       const keys = ['sprBg0', 'sprBg1'];
@@ -44,7 +48,14 @@ export default class MenuScene extends Phaser.Scene {
 
     this.gameHeader = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.5, 'gameImage');
 
-    this.gameButton = new Button(this, config.width * 0.5 - 120, config.height * 0.2, 'blueButton1', 'blueButton2', 'Play', 'Game');
+    this.model = this.sys.game.globals.model;
+
+    let playSound = null;
+    if (this.model.soundOn === true) {
+      playSound = this.sfx.btnPlay;
+    }
+    this.gameButton = new Button(this, config.width * 0.5 - 120, config.height * 0.2, 'blueButton1', 'blueButton2', 'Play', 'Game', playSound);
+
 
     this.optionsButton = new Button(this, config.width * 0.5, config.height * 0.2, 'blueButton1', 'blueButton2', 'Options', 'Options');
 
@@ -63,7 +74,7 @@ export default class MenuScene extends Phaser.Scene {
       + '\nUse the space key to pew pew',
       { fontSize: 20 });
 
-    this.model = this.sys.game.globals.model;
+
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
       this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
       this.bgMusic.play();

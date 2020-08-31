@@ -11,6 +11,7 @@ class Player extends Entity {
     this.setData('timerShootDelay', 10);
     this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
     this.setData('score', 0);
+    this.play('sprPlayer');
   }
 
   moveUp() {
@@ -41,7 +42,9 @@ class Player extends Entity {
       } else {
         const laser = new PlayerLaser(this.scene, this.x, this.y);
         this.scene.playerLasers.add(laser);
-
+        if (this.scene.model.soundOn === true) {
+          this.scene.sfx.laser.play();
+        }
         this.setData('timerShootTick', 0);
       }
     }

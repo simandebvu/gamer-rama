@@ -17,7 +17,9 @@ export default class GameScene extends Phaser.Scene {
     this.load.image('sprEnemy1', 'assets/images/sprEnemy1.png');
     this.load.image('sprLaserPlayer', 'assets/images/sprLaserPlayer.png');
     this.load.image('sprLaserEnemy0', 'assets/images/sprLaserEnemy0.png');
-
+    this.load.audio('sndExplode0', 'assets/music/sndExplode0.wav');
+    this.load.audio('sndExplode1', 'assets/music/sndExplode1.wav');
+    this.load.audio('sndLaser', 'assets/music/sndLaser.wav');
     this.load.spritesheet('sprExplosion', 'assets/images/sprExplosion.png', {
       frameWidth: 32,
       frameHeight: 32,
@@ -64,6 +66,16 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 20,
       repeat: -1,
     });
+
+    this.model = this.sys.game.globals.model;
+
+    this.sfx = {
+      explosions: [
+        this.sound.add('sndExplode0'),
+        this.sound.add('sndExplode1'),
+      ],
+      laser: this.sound.add('sndLaser'),
+    };
 
     this.scores = storage.getScores();
 

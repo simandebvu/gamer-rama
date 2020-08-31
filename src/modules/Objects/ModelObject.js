@@ -3,6 +3,7 @@ export default class Model {
   constructor() {
     this._musicOn = true;
     this._bgMusicPlaying = false;
+    this._soundOn = true;
   }
 
   set musicOn(value) {
@@ -19,5 +20,13 @@ export default class Model {
 
   get bgMusicPlaying() {
     return this._bgMusicPlaying;
+  }
+
+  set soundOn(value) {
+    this._soundOn = value;
+  }
+
+  get soundOn() {
+    return this._soundOn;
   }
 }

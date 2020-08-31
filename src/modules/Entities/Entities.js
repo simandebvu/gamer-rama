@@ -15,6 +15,10 @@ export default class Entity extends Phaser.GameObjects.Sprite {
       this.setTexture('sprExplosion');
       this.setData('score', 0);
       this.play('sprExplosion');
+      if (this.scene.model.soundOn === true) {
+        // eslint-disable-next-line max-len
+        this.scene.sfx.explosions[Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)].play();
+      }
       if (this.shootTimer !== undefined) {
         if (this.shootTimer) {
           this.shootTimer.remove(false);

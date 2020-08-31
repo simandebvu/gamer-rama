@@ -14,11 +14,17 @@ export default class GameOverScene extends Phaser.Scene {
     this.load.image('sprBg0', 'assets/images/sprBg0.png');
     this.load.image('sprBg1', 'assets/images/sprBg1.png');
     this.load.image('bender', 'assets/images/bender.jpg');
+    this.load.audio('goMusic', 'assets/music/roberto.wav');
   }
 
   create() {
     this.scores = LocalStorage.getScores();
     this.gameHeader = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.8, 'bender');
+    this.model = this.sys.game.globals.model;
+    this.song = this.sound.add('goMusic', { volume: 0.7 });
+    if (this.model.soundOn === true) {
+      this.song.play();
+    }
 
     this.title = this.add.text(this.game.config.width * 0.5, 90, 'GAME OVER', {
       fontFamily: 'monospace',
@@ -69,16 +75,16 @@ export default class GameOverScene extends Phaser.Scene {
           this.userName = inputText.value;
           this.submit = ScoresAPI.submitScore(this.userName, this.scores[0]);
           this.submit.then(() => {
+            this.song.stop();
             this.scene.start('LeaderBoard');
           });
         }
       }
     });
 
-    this.optionsButton = new Button(this, config.width * 0.2, config.height * 0.3, 'blueButton1', 'blueButton2', 'Restart', 'Game');
+    this.optionsButton = new Button(this, config.width * 0.2, config.height * 0.3, 'blueButton1', 'blueButton2', 'Restart', 'Game', null, this.song);
 
-    this.creditsButton = new Button(this, config.width * 0.5 + 130, config.height * 0.3, 'blueButton1', 'blueButton2', 'Menu', 'Menu');
-
+    this.creditsButton = new Button(this, config.width * 0.5 + 130, config.height * 0.3, 'blueButton1', 'blueButton2', 'Menu', 'Menu', null, this.song);
 
     this.backgrounds = [];
     for (let i = 0; i < 5; i += 1) {
