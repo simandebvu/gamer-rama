@@ -24,8 +24,8 @@ export default class MenuScene extends Phaser.Scene {
     }
     this.textConfig = {
       color: '#0277bd',
-      fontFamily: 'sans-serif',
-      fontSize: '30px',
+      fontFamily: 'monospace',
+      fontSize: '25px',
       lineHeight: 1.3,
       align: 'center',
       fontStyle: 'bold',
