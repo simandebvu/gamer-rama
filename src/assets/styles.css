@@ -14,11 +14,11 @@ canvas {
 div {
   left: 0;
   right: 0;
-  margin-right: auto!important;
+  margin-right: auto !important;
   margin-left: auto;
 }
 
-#submitButton{
+#submitButton {
   border-radius: 3px;
   padding: 5px;
   border: 0;
@@ -29,7 +29,7 @@ div {
   width: 144px;
 }
 
-#nameField{
+#nameField {
   border-radius: 3px;
   font-size: 18px;
 }
