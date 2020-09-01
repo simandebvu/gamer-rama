@@ -31,6 +31,7 @@
   - [How to play](#how-to-play)
   - [Game Design Document](#game-design-document)
   - [Live Demo](#live-demo)
+  - [Video Presentation](#video-presentation)
   - [Local Installation](#local-installation)
   - [Automated Test](#automated-test)
   - [Potential future features](#potential-future-features)
@@ -80,6 +81,10 @@ Feel free to look at it, by clicking [here.](https://docs.google.com/document/d/
 ## Live Demo
 
 [Live Demo Link](https://gamer-ama.netlify.app/)
+
+## Video Presentation
+
+[Video Link](https://www.loom.com/share/442b8206929b40d3abd4a21dc6478ade)
 
 ## Local Installation 
 
