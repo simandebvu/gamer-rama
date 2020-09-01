@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "server": "webpack-dev-server --open",
+    "lint:js": "eslint",
+    "lint:css": "stylelint **/*.{css,scss}"
   },
   "repository": {
     "type": "git",
