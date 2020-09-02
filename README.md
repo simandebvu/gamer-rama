@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/simandebvu/gamer-rama/">
-    <img src="./gameLogo.jpg" alt="Logo" width="200" height="100">
+    <img src="./public/gameLogo.jpg" alt="Logo" width="200" height="100">
   </a>
 
   <h3 align="center">Gamerama</h3>
@@ -42,7 +42,7 @@
   - [Acknowledgments](#acknowledgments)
   - [📝 License](#-license)
 
-![screenshot](./app-screenshot.gif)
+![screenshot](./public/app-screenshot.gif)
 
 ## Built With
 
@@ -69,7 +69,7 @@ The player will be part of the planet express crew in a bid to deliver precious 
 
 ## How to play
 
-![keyboard](./keyboard.png)
+![keyboard](./public/keyboard.png)
 
 - Use arrow keys to navigate the ship
 - Use the Space Bar to shoot
@@ -114,15 +114,14 @@ Run the command and see the output: `$ npm run test`
 <table style="padding:10px">
   <tr>
     <td> 
-         <img src=".\MenuScene.png"  alt="1" width = 280px height = 400px ></td>      
- <td><img src=".\OptionsScene.png" align="right" alt="2" width = 280px height = 400px></td>
-   <td><img src=".\GameOverScene.png" alt="3" width = 280px height = 400px></td>     
+         <img src=".\public\MenuScene.png"  alt="1" width = 280px height = 400px ></td>      
+ <td><img src=".\public\OptionsScene.png" align="right" alt="2" width = 280px height = 400px></td>
+   <td><img src=".\public\GameOverScene.png" alt="3" width = 280px height = 400px></td>     
   </tr>
   <tr>
-     <td><img src=".\GameScene.png" alt="3" width = 280px height = 400px></td>     
-     <td><img src=".\LeaderboardScene.png" alt="3" width = 280px height = 400px></td> 
-          <td><img src=".\GameScene.png" alt="3" width = 280px height = 400px></td>     
-     <td><img src=".\CreditsScene.png" alt="3" width = 280px height = 400px></td> 
+     <td><img src=".\public\GameScene.png" alt="3" width = 280px height = 400px></td>     
+     <td><img src=".\public\LeaderboardScene.png" alt="3" width = 280px height = 400px></td>    
+     <td><img src=".\public\CreditsScene.png" alt="3" width = 280px height = 400px></td> 
      </tr> 
 </table>
 
