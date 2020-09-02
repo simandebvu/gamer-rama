@@ -12,9 +12,13 @@ const scoresAPI = (() => {
       },
       body: postParams,
     };
-    const response = await fetch(mURL, postHeader);
-    const answer = await response.json();
-    return answer;
+    try {
+      const response = await fetch(mURL, postHeader);
+      const answer = await response.json();
+      return answer;
+    } catch (e) {
+      throw new Error('Something went wrong ');
+    }
   };
 
   const order = (obj) => {
