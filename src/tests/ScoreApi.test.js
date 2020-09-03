@@ -1,4 +1,4 @@
-import scoresAPI from '../../__mocks__/ScoreApi';
+import scoresAPI from './__mocks__/ScoreApi';
 
 describe('Scores API', () => {
   test('Gets the scores as a list', () => {
