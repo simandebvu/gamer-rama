@@ -14,3 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Automated tests
 - Game Design Document
 - Lively and theme focused icons, background music and sounds
+
+## Fixed
+- Added exception handling
+- Placed root images to public
