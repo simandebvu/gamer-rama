@@ -77,7 +77,9 @@ export default class MenuScene extends Phaser.Scene {
 
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
       this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
-      this.bgMusic.play();
+      window.setTimeout(() => {
+        this.bgMusic.play();
+      }, 500);
       this.model.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
     }
