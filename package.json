@@ -7,7 +7,7 @@
     "test": "jest",
     "build": "webpack",
     "watch": "webpack --watch",
-    "server": "webpack-dev-server --open",
+    "server": "webpack-dev-server --start",
     "lint:js": "eslint",
     "lint:css": "stylelint **/*.{css,scss}"
   },
@@ -41,7 +41,8 @@
   "dependencies": {
     "babel-jest": "^26.3.0",
     "jest": "^26.4.2",
-    "phaser": "^3.24.1"
+    "phaser": "^3.24.1",
+    "webpack-dev-server": "^3.11.0"
   },
   "jest": {
     "transform": {
