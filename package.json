@@ -1,0 +1,63 @@
+{
+  "name": "gamer-rama",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "server": "webpack-dev-server --start",
+    "lint:js": "eslint",
+    "lint:css": "stylelint **/*.{css,scss}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simandebvu/gamer-rama.git"
+  },
+  "keywords": [],
+  "author": "Shingirayi Mandebvu <shingim1@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simandebvu/gamer-rama/issues"
+  },
+  "homepage": "https://github.com/simandebvu/gamer-rama#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "css-loader": "^4.2.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^6.0.0",
+    "jest-canvas-mock": "^2.2.0",
+    "style-loader": "^1.2.1",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
+    "stylelint-scss": "^3.17.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "babel-jest": "^26.3.0",
+    "jest": "^26.4.2",
+    "phaser": "^3.24.1",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "setupFiles": [
+      "jest-canvas-mock"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/__mocks__/fileMock.js"
+    }
+  }
+}
